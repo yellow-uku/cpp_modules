@@ -1,8 +1,12 @@
-#include "Contacts.hpp"
+# include "Contact.hpp"
 
 class PhoneBook
 {
-	Contacts contacts[8];
+	Contact contacts[8];
+	public:
 
-	
+//		Phonebook();
+//		~Phonebook();
+
+		void add_contact();
 };
