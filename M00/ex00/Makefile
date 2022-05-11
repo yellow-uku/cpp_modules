@@ -16,7 +16,7 @@ $(NAME): $(OBJ)
 	@echo "--------------------------------"
 
 %.o : %.cpp 
-	$(CC) ${FLAGS} -o $@ -c $<
+	$(CC) ${CCFLAGS} -o $@ -c $<
 
 clean:
 	@rm -rf $(OBJ)

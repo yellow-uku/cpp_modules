@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
 	std::string command;
 	PhoneBook	phonebook;
@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	{
 		std::cout << "Please, enter a command (ADD, SEARCH or EXIT):" << std::endl;
 		std::cin >> command;
-		if (command == "EXIT")
+		if (command == "EXIT" || std::cin.eof())
 			return (0);
 		if (command == "ADD" || command == "SEARCH")
 		{
