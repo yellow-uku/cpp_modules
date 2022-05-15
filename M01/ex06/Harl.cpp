@@ -37,12 +37,22 @@ void Harl::error()
 	std::cout << "Error: This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain(std::string level)
+void Harl::complain(std::string const &level)
 {
+	int idx = get_level_id(level);
+	if (idx == -1)
+	{
+		std::cout << "Harl doesn't know any comments of this type!\n";
+	}
+	(*this.*handler[idx])();
+}
 
+int Harl::get_level_id(std::string const &level)
+{
 	for (int i = 0; i < LIMIT_LEVEL; ++i)
 	{
 		if (this->levels[i] == level)
-			(*this.*handler[i])();
+			return (i);
 	}
+	return (-1);
 }

@@ -19,7 +19,8 @@ class Harl
 		Harl();
 		~Harl();
 
-		void complain( std::string level );
+		void complain( std::string const &level );
+		int get_level_id(std::string const &level);
 
 	private:
 		static std::string levels[LIMIT_LEVEL];
