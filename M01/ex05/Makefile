@@ -1,14 +1,12 @@
-NAME = zombie
+NAME = sed
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
-	Zombie.cpp \
-	newZombie.cpp \
-	randomChump.cpp
+	Harl.cpp
 
-H = Zombie.hpp
+H = Harl.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

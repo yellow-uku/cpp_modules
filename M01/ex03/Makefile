@@ -1,14 +1,16 @@
-NAME = zombie
+NAME = war
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
-	Zombie.cpp \
-	newZombie.cpp \
-	randomChump.cpp
+	Weapon.cpp \
+	HumanA.cpp \
+	HumanB.cpp
 
-H = Zombie.hpp
+H = Weapon.hpp \
+	HumanA.hpp \
+	HumanB.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

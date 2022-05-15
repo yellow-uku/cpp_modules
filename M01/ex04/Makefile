@@ -1,14 +1,9 @@
-NAME = zombie
+NAME = sed
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
-	Zombie.cpp \
-	newZombie.cpp \
-	randomChump.cpp
-
-H = Zombie.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
@@ -20,14 +15,14 @@ $(NAME):	$(OBJ)
 	@echo "${NAME} compiled"
 	@echo "--------------------------------"
 
-%.o : %.cpp $(H)
+%.o : %.cpp
 	$(CC) ${CCFLAGS} -o $@ -c $<
 
 clean:
-	@rm -rf $(OBJ) *.tmp *.gch
+	@rm -rf $(OBJ) *.txt *.replace
 
 fclean: clean
-	@rm -rf $(NAME) *.tmp *.gch
+	@rm -rf $(NAME) *.txt *.replace
 
 re:	fclean all
 
