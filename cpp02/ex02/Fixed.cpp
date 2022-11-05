@@ -18,7 +18,7 @@ Fixed::Fixed(const float num)
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &bits)
+Fixed::Fixed(const Fixed &bits)
 {
 	_rawBits = bits._rawBits;
 	std::cout << "Copy constructor called" << std::endl;
@@ -47,10 +47,92 @@ Fixed& Fixed::operator=(const Fixed &bits)
 	return *this;
 }
 
+
+
+Fixed Fixed::operator+(const Fixed &bits) const
+{
+	Fixed new_num;
+
+	new_num._rawBits = this->_rawBits + bits._rawBits;
+	return new_num;
+}
+
+
+Fixed Fixed::operator-(const Fixed &bits) const
+{
+	Fixed new_num;
+
+	new_num._rawBits = this->_rawBits - bits._rawBits;
+	return new_num;
+}
+
+Fixed Fixed::operator*(const Fixed &bits) const
+{
+	Fixed new_num;
+
+	new_num._rawBits = this->_rawBits * bits._rawBits;
+	return new_num;
+}
+
+/*
+Fixed Fixed::operator/(const Fixed &bits) const
+{
+	Fixed new_num;
+
+	if bits == Fixed(0);
+	return new_num;
+}
+*/
+
+Fixed& Fixed::operator-=(const Fixed &bits)
+{
+	*this = *this - bits;
+	return *this;
+}
+
+Fixed& Fixed::operator+=(const Fixed &bits)
+{
+	*this = *this + bits;
+	return *this;
+}
+
+// pre-increment incrementing
+
+Fixed& Fixed::operator++()
+{
+	*this += EPSILON;
+	return *this;
+}
+
+// post-increment incrementing
+
+Fixed& Fixed::operator++(int)
+{
+	*this += EPSILON;
+	return *this;
+}
+
+// pre-increment decrementing
+
+Fixed& Fixed::operator--()
+{
+	*this = *this - EPSILON;
+	return *this;
+}
+
+// post-increment decrementing
+
+Fixed& Fixed::operator--(int)
+{
+	*this = *this - EPSILON;
+	return *this;
+}
+
 float Fixed::toFloat(void) const
 {
 	return ((float)(_rawBits)) / (1 << _fracBits);
 }
+
 std::ostream & operator<<(std::ostream & o, const Fixed &bits)
 {
 //	std::cout << "Insertion operator called" << std::endl;

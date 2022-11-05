@@ -18,7 +18,7 @@ Fixed::Fixed(const float num)
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &bits)
+Fixed::Fixed(const Fixed &bits)
 {
 	_rawBits = bits._rawBits;
 	std::cout << "Copy constructor called" << std::endl;
@@ -51,7 +51,6 @@ float Fixed::toFloat(void) const
 {
 	return ((float)(_rawBits)) / (1 << _fracBits);
 }
-
 std::ostream & operator<<(std::ostream & o, const Fixed &bits)
 {
 //	std::cout << "Insertion operator called" << std::endl;

@@ -9,13 +9,13 @@ class Fixed
 	private:
 		int					_rawBits; 
 		static const int	_fracBits = 8;
-	
+
 	public:
 		Fixed();
 		Fixed(const int);
 		Fixed(const float num);
 		~Fixed();
-		Fixed(Fixed &);
+		Fixed(const Fixed &);
 		Fixed& operator=(const Fixed &);
 
 		float toFloat(void) const;
