@@ -12,11 +12,24 @@ int main()
 	Fixed const f(121);
 
 	Fixed num(1.3f);
-//	a = g - e;
-	a = num++;
 
+	Fixed const	t( Fixed( 5.05f ) * Fixed( 2 ) );
+/*	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << t << std::endl;
+*/
+//	std::cout << "num is " << num << std::endl;
+//	a = num++;
+
+	std::cout << t << std::endl;
+
+	std::cout << "--------------------------------" << std::endl;
 //	a = Fixed(1234.4321f);
 
+	std::cout << Fixed::max(a, t) << std::endl;
 	std::cout << "a is " << a << std::endl;
 	std::cout << "num is " << num << std::endl;
 	std::cout << "e is " << e << std::endl;

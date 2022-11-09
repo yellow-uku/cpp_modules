@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cmath>
 
-# define EPSILON 0.016304f
+# define EPSILON 0.00390625f
 
 class Fixed
 {
@@ -22,21 +22,36 @@ class Fixed
 	
 	// Overloading Operators
 
+		Fixed&	operator=(const Fixed &);
+
 	// Comparison Operators
 
-		Fixed&	operator=(const Fixed &);
+		bool	operator>(Fixed const &) const;
+		bool	operator<(Fixed const &) const;
+		bool	operator>=(Fixed const &) const;
+		bool	operator<=(Fixed const &) const;
+		bool	operator!=(Fixed const &) const;
+		bool	operator==(Fixed const &) const;
+
+	// Arithmetic operators
+
 		Fixed	operator+(const Fixed &) const;
 		Fixed	operator-(const Fixed &) const;
 		Fixed	operator*(const Fixed &) const;
-
+		Fixed	operator/(const Fixed &) const;
 
 		Fixed&	operator+=(const Fixed &);
 		Fixed&	operator-=(const Fixed &);
-		Fixed&	operator++();  // pre-increment incrementing
-		Fixed&	operator++(int); // post-increment incrementing (?)
-		Fixed&	operator--();  // pre-increment decrementing
-		Fixed&	operator--(int); // post-increment decrementing (?)
+		Fixed&	operator++();  // pre-increment
+		Fixed	operator++(int); // post-increment
+		Fixed&	operator--();  // pre-decrement
+		Fixed	operator--(int); // post-decrement
 
+		static const Fixed&	min(const Fixed &, const Fixed &);
+		static Fixed&		min(Fixed &, Fixed &);
+		static const Fixed&	max(const Fixed &, const Fixed &);
+		static Fixed&		max(Fixed &, Fixed &);
+		
 		float	toFloat(void) const;
 		int		toInt(void) const;
 

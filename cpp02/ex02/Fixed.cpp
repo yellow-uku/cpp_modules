@@ -3,30 +3,30 @@
 Fixed::Fixed()
 		: _rawBits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int num)
 		: _rawBits(num << _fracBits)
 {
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float num)
 		: _rawBits(roundf(num * (1 << _fracBits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &bits)
 {
 	_rawBits = bits._rawBits;
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits() const
@@ -36,18 +36,46 @@ int Fixed::getRawBits() const
 
 void Fixed::setRawBits(int bits)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	_rawBits = bits;
 }
 
 Fixed& Fixed::operator=(const Fixed &bits)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	this->_rawBits = bits._rawBits;
 	return *this;
 }
 
+bool Fixed::operator>(Fixed const &other) const
+{
+	return (this->getRawBits() > other.getRawBits());
+}
 
+bool Fixed::operator<(Fixed const &other) const
+{
+	return (this->getRawBits() < other.getRawBits());
+}
+
+bool Fixed::operator>=(Fixed const &other) const
+{
+	return (this->getRawBits() >= other.getRawBits());
+}
+
+bool Fixed::operator<=(Fixed const &other) const
+{
+	return (this->getRawBits() <= other.getRawBits());
+}
+
+bool Fixed::operator==(Fixed const &other) const
+{
+	return (this->getRawBits() == other.getRawBits());
+}
+
+bool Fixed::operator!=(Fixed const &other) const
+{
+	return (this->getRawBits() != other.getRawBits());
+}
 
 Fixed Fixed::operator+(const Fixed &bits) const
 {
@@ -68,21 +96,19 @@ Fixed Fixed::operator-(const Fixed &bits) const
 
 Fixed Fixed::operator*(const Fixed &bits) const
 {
-	Fixed new_num;
-
-	new_num._rawBits = this->_rawBits * bits._rawBits;
-	return new_num;
+	return Fixed(this->toFloat() * bits.toFloat());
 }
 
-/*
 Fixed Fixed::operator/(const Fixed &bits) const
 {
-	Fixed new_num;
-
-	if bits == Fixed(0);
-	return new_num;
+	if (bits._rawBits == 0)
+	{
+		std::cout << "Error: division by zero" << std::endl;
+		return Fixed(0.0f);
+	}
+	return Fixed(this->toFloat() / bits.toFloat());
 }
-*/
+
 
 Fixed& Fixed::operator-=(const Fixed &bits)
 {
@@ -100,19 +126,21 @@ Fixed& Fixed::operator+=(const Fixed &bits)
 
 Fixed& Fixed::operator++()
 {
-	*this += EPSILON;
+	*this += Fixed(EPSILON);
 	return *this;
 }
 
-// post-increment incrementing
+// post-increment
 
-Fixed& Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
-	*this += EPSILON;
-	return *this;
+	Fixed	temp(*this);
+
+	++(*this);
+	return temp;
 }
 
-// pre-increment decrementing
+// pre-decrement
 
 Fixed& Fixed::operator--()
 {
@@ -120,13 +148,77 @@ Fixed& Fixed::operator--()
 	return *this;
 }
 
-// post-increment decrementing
+// post-decrement
 
-Fixed& Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-	*this = *this - EPSILON;
-	return *this;
+	Fixed	temp(*this);
+
+	--(*this);
+	return temp;
 }
+
+
+const Fixed& Fixed::min(const Fixed &x, const Fixed &y)
+{
+	if (x < y)
+		return x;
+	else
+		return y;
+}
+
+// static member functon min
+
+const Fixed&	min(const Fixed &x, const Fixed &y)
+{
+	return (Fixed::min(x, y));
+}
+
+Fixed&	Fixed::min(Fixed &x, Fixed &y)
+{
+	if (x < y)
+		return x;
+	else
+		return y;
+}
+
+// static member functon min
+
+Fixed&	min(Fixed &x, Fixed &y)
+{
+	return (Fixed::min(x, y));
+}
+
+const Fixed&	Fixed::max(const Fixed &x, const Fixed &y)
+{
+	if (x < y)
+		return y;
+	else
+		return x;
+}
+
+// static member functon max
+
+const Fixed&	max(const Fixed &x, const Fixed &y)
+{
+	return (Fixed::max(x, y));
+}
+
+Fixed&	Fixed::max(Fixed &x, Fixed &y)
+{
+	if (x < y)
+		return y;
+	else
+		return x;
+}
+
+// static member functon max
+
+Fixed&	max(Fixed &x, Fixed &y)
+{
+	return (Fixed::max(x, y));
+}
+
 
 float Fixed::toFloat(void) const
 {
