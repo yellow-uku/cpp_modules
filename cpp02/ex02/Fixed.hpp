@@ -20,9 +20,11 @@ class Fixed
 		~Fixed();
 		Fixed(const Fixed &);
 	
-	// Overloading Operators
+	// Copy assignment operator
 
 		Fixed&	operator=(const Fixed &);
+
+// Overloading Operators
 
 	// Comparison Operators
 
@@ -37,8 +39,8 @@ class Fixed
 
 		Fixed	operator+(const Fixed &) const;
 		Fixed	operator-(const Fixed &) const;
-		Fixed	operator*(const Fixed &) const;
-		Fixed	operator/(const Fixed &) const;
+		Fixed	operator*(const Fixed &) const; // recheck
+		Fixed	operator/(const Fixed &) const; // recheck
 
 		Fixed&	operator+=(const Fixed &);
 		Fixed&	operator-=(const Fixed &);

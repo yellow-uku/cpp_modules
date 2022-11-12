@@ -1,12 +1,12 @@
-NAME = fixed
+NAME = trap
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
-	Fixed.cpp
+	ClapTrap.cpp
 
-H = Fixed.hpp
+H = ClapTrap.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
