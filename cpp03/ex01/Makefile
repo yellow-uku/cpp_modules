@@ -4,9 +4,11 @@ CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
-	ClapTrap.cpp
+	ClapTrap.cpp \
+	ScavTrap.cpp
 
-H = ClapTrap.hpp
+H = ClapTrap.hpp \
+	ScavTrap.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
