@@ -12,10 +12,10 @@ int main()
     std::cout << "----------------" << std::endl;
 
     sam.attack("Jack");
-    sam.takeDamage(2);
+    jack.takeDamage(10);
 
     jack.attack("Sam");
-    jack.takeDamage(5);
+    sam.takeDamage(5);
 
     sam.beRepaired(1);
     jack.beRepaired(2);
