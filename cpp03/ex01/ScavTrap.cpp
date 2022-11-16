@@ -7,7 +7,7 @@ ScavTrap::ScavTrap()
     this->_energy_points = 50;
     this->_attack_damage = 20;
 
-    std::cout << "ScavTrap Constructor with " << this->_name << " called" << std::endl;
+    std::cout << "Scav Trap Constructor with " << this->_name << " called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -17,18 +17,18 @@ ScavTrap::ScavTrap(std::string name)
     this->_energy_points = 50;
     this->_attack_damage = 20;
 
-    std::cout << "ScavTrap Constructor with name " << this->_name << " called " << std::endl;
+    std::cout << "Scav Trap Constructor with name " << this->_name << " called " << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Destructor called" << std::endl;
+    std::cout << "Scav Trap Destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &player)
 {
     this->_name = player._name;
-    std::cout << "ScavTrap Copy constructor called" << std::endl;
+    std::cout << "Scav Trap Copy constructor called" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &player)
@@ -38,11 +38,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &player)
     this->_energy_points = player._energy_points;
     this->_attack_damage = player._attack_damage;
 
-    std::cout << "ScavTrap Copy assignment operator called" << std::endl;
+    std::cout << "Scav Trap Copy assignment operator called" << std::endl;
     return *this;
+}
+
+void    ScavTrap::attack(const std::string &target)
+{
+    std::cout << "Scav Trap " << this->_name << " attacks " << target;
+    std::cout << " causing " << this->_attack_damage << " points of damage" << std::endl;
 }
 
 void    ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap is now in Gatekeeper mode" << std::endl;
+    std::cout << "Scav Trap is now in Gatekeeper mode" << std::endl;
 }

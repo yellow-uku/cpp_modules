@@ -47,18 +47,12 @@ void    ClapTrap::attack(const std::string& target)
     if (this->_hit_points < 1 || this->_energy_points < 1)
     {
         std::cout << "Need more health or energy" << std::endl;
-        std::cout << "Number of hit points left: " << this->_hit_points << std::endl;
-        std::cout << "Number of energy points left: " << this->_energy_points << "\n" << std::endl;
         return ;
     }
     this->_energy_points--;
 
     std::cout << this->_name << " attacks " << target;
     std::cout << " causing " << this->_attack_damage << " points of damage" << std::endl;
-
-    std::cout << "Number of hit points left: " << this->_hit_points << std::endl;
-    std::cout << "Number of energy points left: " << this->_energy_points << "\n" << std::endl;
-
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
@@ -70,9 +64,6 @@ void    ClapTrap::takeDamage(unsigned int amount)
         {
             this->_hit_points -= amount;
         }
-
-        std::cout << "Number of hit points left: " << this->_hit_points << std::endl;
-        std::cout << "Number of energy points left: " << this->_energy_points << "\n" << std::endl;
         return ;
     }
     std::cout << this->_name << " already died." << std::endl;
@@ -89,7 +80,4 @@ void    ClapTrap::beRepaired(unsigned int amount)
     this->_energy_points--;
 
     std::cout << this->_name << " repairs " << amount << " hit points" << std::endl;
-
-    std::cout << "Number of hit points left: " << this->_hit_points << std::endl;
-    std::cout << "Number of energy points left: " << this->_energy_points << "\n" << std::endl;
 }

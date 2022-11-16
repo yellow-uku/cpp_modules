@@ -3,24 +3,23 @@
 
 int main()
 {
-//	ClapTrap    sam("Sam");
-	ScavTrap    jack("Jack");
-//	ClapTrap    unknown;
+   ClapTrap    sam("Sam");
+   ScavTrap    jack("Jack");
+ //  ClapTrap    unknown;
 
-	std::cout << "----------------" << std::endl;
+   std::cout << "----------------" << std::endl;
 
-//	sam.attack("Jack");
-	jack.takeDamage(5);
+   sam.attack("Jack");
+   jack.takeDamage(90);
 
-	std::cout << "----------------" << std::endl;
+   std::cout << "----------------" << std::endl;
 
-//	sam.attack("Jack");
-	jack.takeDamage(90);
+   jack.attack("Sam");
+   sam.takeDamage(5);
 
-	std::cout << "----------------" << std::endl;
+   std::cout << "----------------" << std::endl;
 
-//	sam.beRepaired(1);
-	jack.beRepaired(10);
+	sam.beRepaired(1);
 	jack.beRepaired(10);
 	jack.guardGate();
 
