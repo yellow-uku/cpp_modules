@@ -4,52 +4,53 @@ int main()
 {
 	Fixed a(1);
 	Fixed const b(10);
-	Fixed const c (42.42f);
+	Fixed const c(42.42f);
 	Fixed const d(b);
 
 	Fixed const e(42.5f);
 	Fixed const g(1.5f);
-	Fixed const f(121);
+	Fixed const f(120);
 
 	Fixed num(1.3f);
 
-	Fixed const	t( Fixed( 5.05f ) * Fixed( 2 ) );
-/*	std::cout << a << std::endl;
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << (b > c) << std::endl;
+	std::cout << (e < f) << std::endl;
+	std::cout << (b >= 10) << std::endl;
+	std::cout << (f <= 121) << std::endl;
+	std::cout << (b == 10) << std::endl;
+	std::cout << (e != f) << std::endl;
+
+	std::cout << "--------------------------------" << std::endl;
+
+	std::cout << (b + c) << std::endl;
+	std::cout << (b - c) << std::endl;
+	std::cout << (b * c) << std::endl;
+	std::cout << (f / b) << std::endl;
+
+	std::cout << "--------------------------------" << std::endl;
+
+	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
-	std::cout << t << std::endl;
-*/
-//	std::cout << "num is " << num << std::endl;
-//	a = num++;
+	
+	Fixed new_a(2);
+	std::cout << new_a << std::endl;
+	std::cout << --new_a << std::endl;
+	std::cout << new_a << std::endl;
+	std::cout << new_a-- << std::endl;
+	std::cout << new_a << std::endl;
 
+	std::cout << "--------------------------------" << std::endl;
+
+	Fixed const	t( Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << t << std::endl;
 
 	std::cout << "--------------------------------" << std::endl;
-//	a = Fixed(1234.4321f);
 
-	std::cout << Fixed::max(a, t) << std::endl;
-	std::cout << "a is " << a << std::endl;
-	std::cout << "num is " << num << std::endl;
-	std::cout << "e is " << e << std::endl;
-	std::cout << "g is " << g << std::endl;
-	std::cout << "f is " << f << std::endl;
-
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toFloat() << " as float" << std::endl;
-	std::cout << "b is " << b.toFloat() << " as float" << std::endl;
-	std::cout << "c is " << c.toFloat() << " as float" << std::endl;
-	std::cout << "d is " << d.toFloat() << " as float" << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-
+	std::cout << Fixed::max(b, t) << std::endl;
+	std::cout << Fixed::min(b, t) << std::endl;
 	return 0;
 }

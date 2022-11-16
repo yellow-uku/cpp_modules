@@ -20,7 +20,7 @@ Fixed::Fixed(const float num)
 
 Fixed::Fixed(const Fixed &bits)
 {
-	setRawBits(bits._rawBits);
+	_rawBits = bits._rawBits;
 //	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -43,7 +43,7 @@ void Fixed::setRawBits(int bits)
 Fixed& Fixed::operator=(const Fixed &bits)
 {
 //	std::cout << "Copy assignment operator called" << std::endl;
-	setRawBits(bits._rawBits);
+	this->_rawBits = bits._rawBits;
 	return *this;
 }
 
@@ -81,7 +81,7 @@ Fixed Fixed::operator+(const Fixed &bits) const
 {
 	Fixed new_num;
 
-	new_num._rawBits = this->getRawBits() + bits.getRawBits();
+	new_num._rawBits = this->_rawBits + bits._rawBits;
 	return new_num;
 }
 

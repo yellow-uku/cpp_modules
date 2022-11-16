@@ -21,7 +21,7 @@ class Fixed
 		float toFloat(void) const;
 		int toInt(void) const;
 
-		int getRawBits( void ) const;
+		int getRawBits(void) const;
 		void setRawBits(int bits);
 };
 

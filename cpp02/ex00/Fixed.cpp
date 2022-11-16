@@ -8,7 +8,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(Fixed &bits)
 {
-	_rawBits = bits._rawBits;
+	setRawBits(bits._rawBits);
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -24,7 +24,7 @@ int Fixed::getRawBits() const
 	return _rawBits;
 }
 
-void Fixed::setRawBits(int bits)
+void Fixed::setRawBits(int const bits)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	_rawBits = bits;
