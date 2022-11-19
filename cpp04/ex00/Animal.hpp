@@ -1,18 +1,22 @@
 #ifndef __ANIMAL_H__
 # define __ANIMAL_H__
 
+#include <iostream>
+
 class Animal
 {
-    private:
-        std::string _type;
-    public:
-        Animal();
-        ~Animal();
-        Animal(const Animal&);
+	protected:
+		std::string _type;
 
-        Animal& operator=(const Animal &);
+	public:
+		Animal();
+		virtual ~Animal();
+		Animal(const Animal&);
 
-        void    makeSound();
+		Animal& operator=(const Animal &);
+
+		virtual std::string     getType() const;
+		virtual void			makeSound() const;
 };
 
 #endif

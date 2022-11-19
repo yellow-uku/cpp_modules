@@ -1,12 +1,20 @@
-NAME = trap
+NAME = animal
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
-	ClapTrap.cpp
+	Animal.cpp \
+	Dog.cpp \
+	Cat.cpp \
+	WrongCat.cpp \
+	WrongAnimal.cpp
 
-H = ClapTrap.hpp
+H = Animal.hpp \
+	Dog.hpp \
+	Cat.hpp \
+	WrongCat.hpp \
+	WrongAnimal.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
