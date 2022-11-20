@@ -4,6 +4,14 @@ Dog::Dog()
     : _type("Dog")
 {
     std::cout << "Dog Default constructor called" << std::endl;
+
+}
+
+Dog::Dog(const Dog&other)
+{
+    this->_type = other._type;
+    std::cout << "Dog Copy constructor called" << std::endl;
+
 }
 
 Dog::~Dog()
