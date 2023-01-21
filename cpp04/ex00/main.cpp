@@ -20,6 +20,7 @@ int main()
 	meta->makeSound();
 
 	delete meta;
+	delete dog;
 	delete cat;
 	delete wrong_cat;
 	

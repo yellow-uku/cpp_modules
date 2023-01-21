@@ -11,7 +11,7 @@ class WrongCat: public WrongAnimal
 
 	public:
 		WrongCat();
-		virtual ~WrongCat();
+		~WrongCat();
 		WrongCat(const WrongCat&);
 
 		WrongCat& operator=(const WrongCat &);

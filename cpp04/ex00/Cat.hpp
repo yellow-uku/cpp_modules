@@ -5,13 +5,12 @@
 
 class Cat: public Animal
 {
-
 	private:
 		std::string _type;
 
 	public:
 		Cat();
-		virtual ~Cat();
+		~Cat();
 		Cat(const Cat&);
 
 		Cat& operator=(const Cat &);

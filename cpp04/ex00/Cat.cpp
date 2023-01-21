@@ -6,7 +6,7 @@ Cat::Cat()
     std::cout << "Cat Default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat&other)
+Cat::Cat(const Cat&other) : Animal(other)
 {
     this->_type = other._type;
     std::cout << "Cat Copy constructor called" << std::endl;

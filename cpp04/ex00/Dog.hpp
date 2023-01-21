@@ -17,7 +17,7 @@ class Dog: public Animal
 		Dog& operator=(const Dog &);
 
 		std::string     getType() const;
-		void    makeSound() const;
+		void    		makeSound() const;
 };
 
 #endif

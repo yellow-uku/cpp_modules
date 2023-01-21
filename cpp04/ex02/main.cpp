@@ -18,8 +18,8 @@ void fun()
     for (int i = 0; i < n; ++i)
         delete animals[i];
 
-    cat->makeSound();
-    dog->makeSound();
+    // cat->makeSound();
+    // dog->makeSound();
 
     delete dog;
     delete cat;	//should not create a leak
@@ -46,7 +46,7 @@ void    compare_animals()
 
 int main()
 {
-    fun();
-    // compare_animals();  // check deep copy
+    // fun();
+    compare_animals();  // check deep copy
     return 0;
 }
