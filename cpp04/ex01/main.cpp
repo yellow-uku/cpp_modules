@@ -53,8 +53,16 @@ void    compare_animals()
 
 int main()
 {
-    fun();
+    // fun();
     // compare_animals();  // check deep copy
     // while(1);
+
+    Dog* firstDog = new Dog();
+    firstDog->getBrain()->setIdeas("kek");
+    Dog* secondDog = new Dog();
+    secondDog->getBrain()->setIdeas("omg");
+    firstDog = secondDog;
+    delete firstDog;
+    delete secondDog;  
     return 0;
 }
