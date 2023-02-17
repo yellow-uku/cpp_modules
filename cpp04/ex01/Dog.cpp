@@ -7,12 +7,12 @@ Dog::Dog()
 	_brain = new Brain();
 }
 
-Dog::Dog(const Dog&other) : Animal(other)
+Dog::Dog(const Dog &other) : Animal(other)
 {
+	std::cout << "Dog Copy constructor called" << std::endl;
 	this->_type = other._type;
 	this->_brain = new Brain();
 	*(this->_brain) = *(other._brain);
-	std::cout << "Dog Copy constructor called" << std::endl;
 }
 
 Dog::~Dog()
