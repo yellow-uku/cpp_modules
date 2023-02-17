@@ -7,7 +7,7 @@ Cat::Cat()
     _brain = new Brain();
 }
 
-Cat::Cat(const Cat&other) : Animal(other)
+Cat::Cat(const Cat&other) : A_Animal(other)
 {
 	this->_type = other._type;
 	this->_brain = new Brain();

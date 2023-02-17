@@ -3,20 +3,20 @@
 
 #include <iostream>
 
-class Animal
+class A_Animal
 {
 	protected:
 		std::string _type;
 
 	public:
-		Animal();
-		virtual ~Animal();
-		Animal(const Animal&);
+		A_Animal();
+		virtual ~A_Animal();
+		A_Animal(const A_Animal&);
 
-		Animal& operator=(const Animal &);
+		A_Animal& operator=(const A_Animal &);
 
 		virtual std::string     getType() const;
-		virtual void			makeSound() const;
+		virtual void			makeSound() const = 0;
 };
 
 #endif

@@ -11,9 +11,9 @@ class Brain
 	public:
 		Brain();
 		~Brain();
-		Brain(const Brain&);	// need to implement (deep copy, not shallow!)
+		Brain(const Brain&);
 
-		Brain& operator=(const Brain &);	// need to implement (deep copy, not shallow!)
+		Brain& operator=(const Brain &);
 
 		void	setIdeas(std::string);
 		std::string	getIdeas();

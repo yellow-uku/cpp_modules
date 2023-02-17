@@ -4,10 +4,11 @@
 
 void fun()
 {
-    const Animal* dog = new Dog();
-    const Animal* cat = new Cat();
+    const A_Animal* dog = new Dog();
+    const A_Animal* cat = new Cat();
     int n = 4;
-    Animal* animals[n];
+    A_Animal* animals[n];
+    
 
     for (int i = 0; i < n / 2; ++i)
         animals[i] = new Dog();
@@ -46,7 +47,7 @@ void    compare_animals()
 
 int main()
 {
-    // fun();
-    compare_animals();  // check deep copy
+    fun();
+    // compare_animals();  // check deep copy
     return 0;
 }
