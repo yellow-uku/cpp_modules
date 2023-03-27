@@ -30,39 +30,22 @@ void fun()
 
 void    compare_animals()
 {
-    const Dog dog1;
-    Dog dog2 = dog1;
-    // dog1.getBrain()->setIdeas("kek");
-    // Dog dog2(dog1);
-
-    std::cout << "-----------------------------" << std::endl;
-    dog1.getBrain()->setIdeas("kek");
-    dog2.getBrain()->setIdeas("omg");
-
-    dog2 = dog1;
-
-    std::cout << dog1.getBrain()->getIdeas() << std::endl;
-    std::cout << dog2.getBrain()->getIdeas() << std::endl;
-
-    dog1.getBrain()->setIdeas("pepega");
-    // dog2.getBrain()->setIdeas("pepega-2");
-    std::cout << dog1.getBrain()->getIdeas() << std::endl;
-    std::cout << dog2.getBrain()->getIdeas() << std::endl;
-    std::cout << "-----------------------------" << std::endl;
-}
-
-int main()
-{
-    // fun();
-    // compare_animals();  // check deep copy
-    // while(1);
-
     Dog* firstDog = new Dog();
     firstDog->getBrain()->setIdeas("kek");
     Dog* secondDog = new Dog();
     secondDog->getBrain()->setIdeas("omg");
-    firstDog = secondDog;
+    *firstDog = *secondDog;
+
+    std::cout << "-----------------------------" << std::endl;
     delete firstDog;
-    delete secondDog;  
+    delete secondDog;
+}
+
+int main()
+{
+    fun();
+    compare_animals();  // check deep copy
+
+    // while (1);
     return 0;
 }

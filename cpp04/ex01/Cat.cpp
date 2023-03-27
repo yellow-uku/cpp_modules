@@ -18,7 +18,7 @@ Cat::Cat(const Cat&other) : Animal(other)
 Cat::~Cat()
 {
     std::cout << "Cat Destructor begin" << std::endl;
-    delete _brain;
+    delete this->_brain;
     std::cout << "Cat Destructor end" << std::endl;
 }
 
@@ -26,7 +26,8 @@ Cat& Cat::operator=(const Cat &other)
 {
 	std::cout << "Cat Copy assignment operator called" << std::endl;
 	this->_type = other._type;
-	*(this->_brain) = *(other._brain);
+	delete this->_brain;
+	this->_brain = new Brain(*(other._brain));
 	return *this;
 }
 

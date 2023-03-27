@@ -21,7 +21,6 @@ class Dog: public A_Animal
 		std::string     getType() const;
 		void    		makeSound() const;
 		Brain*			getBrain() const;
-		void			setBrain() const;
 };
 
 #endif

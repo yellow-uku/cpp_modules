@@ -22,7 +22,7 @@ Dog::~Dog()
 Dog& Dog::operator=(const Dog &other)
 {
     std::cout << "Dog Copy assignment operator called" << std::endl;
-    this->_type = other._type;
+    this->Animal::operator=(other);
     return *this;
 }
 

@@ -12,6 +12,8 @@ int main()
 	const WrongAnimal* wrong_meta = new WrongAnimal();
 	const WrongAnimal* wrong_cat = new WrongCat();
 
+	std::cout << "-----------------" << std::endl;
+
 	std::cout << meta->getType() << " " << std::endl;
 	std::cout << dog->getType() << " " << std::endl;
 	std::cout << cat->getType() << " " << std::endl;

@@ -1,7 +1,7 @@
 NAME = animal
 
 CC = c++ 
-CCFLAGS = -Wall -Wextra -Werror -std=c++98
+CCFLAGS = -g -ggdb -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
 	Animal.cpp \

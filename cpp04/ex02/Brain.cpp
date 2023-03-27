@@ -5,15 +5,14 @@ Brain::Brain()
 	std::cout << "Brain Default constructor called" << std::endl;
 }
 
-/*
 Brain::Brain(const Brain&other)
 {
-	Brain *new_brain = new Brain();
-	//new_brain->_type = other._type;
 	std::cout << "Brain Copy constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		ideas[i] = other.ideas[i];
 
 }
-*/
+
 
 Brain::~Brain()
 {
@@ -23,12 +22,9 @@ Brain::~Brain()
 
 Brain& Brain::operator=(const Brain &other)
 {
-	for (int i = 0; i < 100; i++)
-	{
-		this->ideas[i] = other.ideas[i];
-	}
-
 	std::cout << "Brain Copy assignment operator called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = other.ideas[i];
 	return *this;
 }
 
