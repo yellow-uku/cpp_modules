@@ -5,7 +5,7 @@
 #include <string>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -26,12 +26,11 @@ class Bureaucrat
 		void				incrementGrade();
 		void				decrementGrade();
 
-		void                signForm(Form &);
+		void                signForm(AForm &);
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				// GradeTooHighException(const char* msg) : std::exception(msg){};
 				virtual const char* what() const throw()
 				{
 					return "Exception: Too high grade.";

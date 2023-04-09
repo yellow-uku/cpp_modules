@@ -5,10 +5,12 @@ CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
 	Bureaucrat.cpp \
-	Form.cpp
+	Form.cpp \
+	ShrubberyForm.cpp
 
 H = Bureaucrat.hpp \
-	Form.hpp
+	AForm.hpp \
+	ShrubberyForm.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

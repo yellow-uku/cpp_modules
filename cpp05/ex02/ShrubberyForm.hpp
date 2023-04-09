@@ -4,19 +4,28 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <fstream>
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm: public AForm
 {
     private:
+
         std::string _target;
 
     public:
-        ShrubberyCreationForm(std::string);
+
+        ShrubberyCreationForm(const std::string);
         ~ShrubberyCreationForm();
 
         void    createFile();
+
+        class ShrubberyCreationFailedException: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 

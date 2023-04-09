@@ -1,32 +1,37 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyForm.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat carl("Carl", 2);
-        Bureaucrat bob("Bob", 110);
-        Form first("Pepega Form", 50, 140);
-        Form second("Form from other pepegas", 1, 110);
+        // Bureaucrat carl("Carl", 2);
+        // Bureaucrat bob("Bob", 110);
+        // Form first("Pepega Form", 50, 140);
+        // Form second("Form from other pepegas", 1, 110);
+        ShrubberyCreationForm form("target");
+        form.createFile();
         
-        std::cout << std::endl;
-        std::cout << first << std::endl;
-        std::cout << second << std::endl;
-
-        std::cout << "1st form: " << first.getIsSigned() << std::endl;
-        std::cout << "2nd form: " << second.getIsSigned() << std::endl;
-        
-        first.beSigned(carl);
-        second.beSigned(bob);
-
-        std::cout << "1st form: " << first.getIsSigned() << std::endl;
-        std::cout << "2nd form: " << second.getIsSigned() << std::endl;
+        // ShrubberyCreationForm wrong_form("target", 140, 137);
 
         std::cout << std::endl;
-        carl.signForm(first);
-        carl.signForm(second);
-        bob.signForm(first);
+        // std::cout << first << std::endl;
+        // std::cout << second << std::endl;
+
+        // std::cout << "1st form: " << first.getIsSigned() << std::endl;
+        // std::cout << "2nd form: " << second.getIsSigned() << std::endl;
+        
+        // first.beSigned(carl);
+        // second.beSigned(bob);
+
+        // std::cout << "1st form: " << first.getIsSigned() << std::endl;
+        // std::cout << "2nd form: " << second.getIsSigned() << std::endl;
+
+        // std::cout << std::endl;
+        // carl.signForm(first);
+        // carl.signForm(second);
+        // bob.signForm(first);
 
         std::cout << std::endl;
     }

@@ -22,10 +22,10 @@ class AForm
         AForm(const std::string, const int, const int);
         ~AForm();
 
-        const std::string   getName() const = 0;
-        bool                getIsSigned() const = 0;
-        int                 getGradeToSign() const = 0;
-        int                 getGradeToExecute() const = 0;
+        const std::string   getName() const;
+        bool                getIsSigned() const;
+        int                 getGradeToSign() const;
+        int                 getGradeToExecute() const;
 
         void                beSigned(Bureaucrat &);
         
