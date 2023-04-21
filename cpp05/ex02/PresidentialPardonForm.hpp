@@ -1,5 +1,5 @@
-#ifndef __ROBOTOMY_H__
-# define __ROBOTOMY_H__
+#ifndef __PARDON_H__
+# define __PARDON_H__
 
 #include <iostream>
 #include <string>
@@ -8,7 +8,7 @@
 
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class PresidentialPardonForm: public AForm
 {
     private:
         std::string _target;
@@ -17,10 +17,10 @@ class RobotomyRequestForm : public AForm
         void    do_execute(Bureaucrat const &) const;
 
     public:
-        RobotomyRequestForm(std::string);
-        ~RobotomyRequestForm();
+        PresidentialPardonForm(std::string);
+        ~PresidentialPardonForm();
     
-        class RobotomyRequestFailedException: public std::exception
+        class PresidentialPardonFailedException: public std::exception
         {
             public:
                 virtual const char* what() const throw();
