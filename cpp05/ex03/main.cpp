@@ -3,48 +3,64 @@
 #include "ShrubberyForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-	Bureaucrat bob("Bob", 2);
-	Bureaucrat carl("Carl", 147);
+	Bureaucrat carl("Carl", 2);
 
-	ShrubberyCreationForm shrubbery("first");
-	RobotomyRequestForm robotomy("robotomy");
-	PresidentialPardonForm	pardon("pardon");
+	Intern pepega;
 
+	std::cout << '\n';
+
+	AForm*	ppf = pepega.makeForm("presidential pardon form", "Pardon");
+	AForm*	scf = pepega.makeForm("shrubbery creation form", "Shrubbery");
+	AForm*	rrf = pepega.makeForm("robotomy request form", "Robotomy");
+
+	// test failed form
 	std::cout << '\n';
 	try
 	{
-		bob.executeForm(shrubbery);
+		AForm*	failedForm = pepega.makeForm("Whatever form", "New");
+		carl.executeForm(*failedForm);
 	}
 	catch(const std::exception& ex)
 	{
 		std::cout << ex.what() << '\n';
 	}
+	// test if form is signed or not
 	std::cout << '\n';
 	try
 	{
-		bob.signForm(robotomy);
-		carl.executeForm(robotomy);
-		bob.executeForm(robotomy);
+		carl.executeForm(*rrf);
+	}
+	catch(const std::exception& ex)
+	{
+		std::cout << ex.what() << '\n';
+	}
+	// sign and execute created form
+	std::cout << '\n';
+	try
+	{
+		carl.signForm(*rrf);
+		carl.executeForm(*rrf);
+
+		carl.signForm(*scf);
+		carl.executeForm(*scf);
+
+		carl.signForm(*ppf);
+		carl.executeForm(*ppf);
 	}
 	catch (std::exception & ex)
 	{
 		std::cout << ex.what() << std::endl;
 	}
-	std::cout << '\n';
-	try
-	{
-		bob.signForm(pardon);
-		bob.executeForm(pardon);
-	}
-	catch(const std::exception& ex)
-	{
-		std::cout << ex.what() << '\n';
-	}
 	
 	std::cout << '\n';
+ 
+//	deleteData(&form); // I will do it iinn desctructor stead
+//	with new member attribute: array of pointers to forms
+
 	return 0;
 }
 

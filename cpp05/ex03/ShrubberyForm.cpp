@@ -37,3 +37,8 @@ void    ShrubberyCreationForm::do_execute(Bureaucrat const & executor) const
 		throw ShrubberyCreationFailedException();
 	}
 }
+
+// AForm*	clone(std::string const &target) const
+// {
+// 	return new ShrubberyCreationForm(target);
+// }

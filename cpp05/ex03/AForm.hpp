@@ -22,7 +22,7 @@ class AForm
 	public:
 
 		AForm(const std::string, const int, const int);
-		~AForm();
+		virtual ~AForm();
 
 		const std::string   getName() const;
 		bool                getIsSigned() const;
@@ -31,6 +31,8 @@ class AForm
 
 		void                beSigned(Bureaucrat &);
 		void				execute(Bureaucrat const &) const;
+
+		// virtual AForm*		clone(std::string const &) const = 0;
 		
 		class GradeTooHighException: public std::exception
 		{

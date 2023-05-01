@@ -22,3 +22,7 @@ void    RobotomyRequestForm::do_execute(Bureaucrat const &other) const
 	std::cout << other.getName() << " has been robotomized successfully 50\% of the time\n";
 }
 
+// AForm*	clone(std::string const &target) const
+// {
+// 	return new RobotomyRequestForm(target);
+// }

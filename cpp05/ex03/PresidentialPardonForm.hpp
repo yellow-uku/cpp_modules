@@ -19,6 +19,8 @@ class PresidentialPardonForm: public AForm
     public:
         PresidentialPardonForm(std::string);
         ~PresidentialPardonForm();
+
+        // AForm*  clone(std::string const &) const;
     
         class PresidentialPardonFailedException: public std::exception
         {

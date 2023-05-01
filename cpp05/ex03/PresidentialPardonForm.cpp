@@ -22,3 +22,7 @@ void    PresidentialPardonForm::do_execute(Bureaucrat const &other) const
 	std::cout << other.getName() << " has been pardoned by Zaphod Beeblebrox\n";
 }
 
+// AForm*	clone(std::string const &target) const
+// {
+// 	return new PresidentialPardonForm(target);
+// }

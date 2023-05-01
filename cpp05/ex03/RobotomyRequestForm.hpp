@@ -19,6 +19,8 @@ class RobotomyRequestForm : public AForm
     public:
         RobotomyRequestForm(std::string);
         ~RobotomyRequestForm();
+
+        // AForm*  clone(std::string const &) const;
     
         class RobotomyRequestFailedException: public std::exception
         {

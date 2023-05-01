@@ -21,6 +21,8 @@ class ShrubberyCreationForm: public AForm
         ShrubberyCreationForm(const std::string);
         ~ShrubberyCreationForm();
 
+        // AForm*		clone(std::string const &) const;
+
         class ShrubberyCreationFailedException: public std::exception
         {
             public:
