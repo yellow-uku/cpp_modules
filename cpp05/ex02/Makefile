@@ -11,7 +11,7 @@ SRC = main.cpp \
 	PresidentialPardonForm.cpp
 
 H = Bureaucrat.hpp \
-	AForm.hpp \
+	Form.hpp \
 	ShrubberyForm.hpp \
 	RobotomyRequestForm.hpp \
 	PresidentialPardonForm.hpp

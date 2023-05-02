@@ -6,7 +6,7 @@
 #include <exception>
 #include <fstream>
 
-#include "AForm.hpp"
+#include "Form.hpp"
 
 class RobotomyRequestForm : public AForm
 {
@@ -17,7 +17,11 @@ class RobotomyRequestForm : public AForm
         void    do_execute(Bureaucrat const &) const;
 
     public:
+
+        RobotomyRequestForm();
         RobotomyRequestForm(std::string);
+        RobotomyRequestForm(RobotomyRequestForm const &); 
+        RobotomyRequestForm& operator=(RobotomyRequestForm const &);
         ~RobotomyRequestForm();
     
         class RobotomyRequestFailedException: public std::exception

@@ -1,4 +1,10 @@
-#include "AForm.hpp"
+#include "Form.hpp"
+
+AForm::AForm() 
+    : _name("NoName"), _isSigned(false), _gradeToSign(42), _gradeToExecute(42)
+{
+    std::cout << "Form Default Constructor called" << std::endl;
+} 
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute)
 		: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
@@ -13,6 +19,27 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
 AForm::~AForm()
 {
 	std::cout << "AForm Destructor called" << std::endl;
+}
+
+AForm::AForm(const AForm &copy)
+    : _name(copy.getName()), _gradeToSign(copy.getGradeToSign()), _gradeToExecute(copy.getGradeToExecute())
+{
+    std::cout << "AForm Copy constructor called" << std::endl;
+    
+    if(_gradeToSign < 1 || _gradeToExecute < 1)
+        throw AForm::GradeTooHighException();
+    else if (_gradeToSign >150 || _gradeToExecute > 150)
+        throw AForm::GradeTooLowException();
+    if (this != &copy)
+        *this = copy;
+}
+
+AForm& AForm::operator=(const AForm& other)
+{
+	if (this == &other)
+		return (*this);
+	this->_isSigned = other._isSigned;
+	return (*this);
 }
 
 std::ostream& operator << (std::ostream & out, const AForm &other)
@@ -39,14 +66,23 @@ const char* AForm::NotSignedException::what() const throw()
 	return "Form Exception: The form is not signed.";
 }
 
+const char* AForm::AlreadySignedException::what() const throw()
+{
+    return "Form Exception: The form is already signed.";
+}
+
+
 void    AForm::beSigned(Bureaucrat &other)
 {
-	if (this->getGradeToSign() >= other.getGrade())
-		this->_isSigned = true;
-	else
-		this->_isSigned = false;
-	return;
+    if (_isSigned)
+        throw AForm::AlreadySignedException();
+
+    if (this->getGradeToSign() >= other.getGrade())
+        this->_isSigned = true;
+    else
+        throw AForm::GradeTooLowException();
 }
+
 
 void	AForm::execute(Bureaucrat const &executor) const
 {

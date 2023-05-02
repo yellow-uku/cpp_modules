@@ -1,5 +1,10 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
+
+Bureaucrat::Bureaucrat() : _name("NoName"), _grade(150)
+{
+    std::cout << "Bureaucrat Default constructor called" << std::endl;
+}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)
 			: _name(name), _grade(grade)
@@ -38,15 +43,15 @@ std::ostream& operator << (std::ostream& out, const Bureaucrat& other)
 	return out;
 }
 
-// const std::string	 Bureaucrat::GradeTooHighException::what() const throw()
-// {
-// 	return "Exception: Too high grade. Please, enter valid value.";
-// }
+const char*	 Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Exception: Too high grade. Please, enter valid value.";
+}
 
-// const char*	Bureaucrat::GradeTooLowException::what() const throw()
-// {
-// 	return "Exception: Grade too low";
-// }
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Exception: Grade too low";
+}
 
 const char* Bureaucrat::ExecutuionFailedException::what() const throw()
 {
@@ -65,26 +70,28 @@ int		Bureaucrat::getGrade() const
 
 void	Bureaucrat::incrementGrade()
 {
-	this->_grade--;
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
+	this->_grade--;
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	this->_grade++;
 	if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	this->_grade++;
 }
 
 void	Bureaucrat::signForm(AForm &other)
 {
-	other.beSigned(*this);	// current bureaucrat try to sign the form
-	if (other.getIsSigned())
+	try
+	{
+		other.beSigned(*this);	// current bureaucrat try to sign the form
 		std::cout << this->getName() << " signed " << other.getName() << std::endl;
-	else
-	{	std::cout << this->getName() << " couldn't sign " << other.getName() << " because the grade of bureaucrat is not high enough." << std::endl;
-		throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception &ex)
+	{	std::cout << this->getName() << " couldn't sign " << other.getName() << std::endl;
+	 	std::cout << " because " << ex.what() << std::endl;
 	}
 }
 

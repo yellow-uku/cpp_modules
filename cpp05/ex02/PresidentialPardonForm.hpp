@@ -6,7 +6,7 @@
 #include <exception>
 #include <fstream>
 
-#include "AForm.hpp"
+#include "Form.hpp"
 
 class PresidentialPardonForm: public AForm
 {
@@ -17,7 +17,11 @@ class PresidentialPardonForm: public AForm
         void    do_execute(Bureaucrat const &) const;
 
     public:
+
+        PresidentialPardonForm();
         PresidentialPardonForm(std::string);
+        PresidentialPardonForm(PresidentialPardonForm const &); 
+        PresidentialPardonForm& operator=(PresidentialPardonForm const &);
         ~PresidentialPardonForm();
     
         class PresidentialPardonFailedException: public std::exception

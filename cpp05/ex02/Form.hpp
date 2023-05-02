@@ -21,8 +21,11 @@ class AForm
 		virtual void	do_execute(Bureaucrat const &) const = 0;
 	public:
 
+        AForm();
 		AForm(const std::string, const int, const int);
-		~AForm();
+		virtual ~AForm();
+		AForm(const AForm &);
+        AForm&   operator=(const AForm &);
 
 		const std::string   getName() const;
 		bool                getIsSigned() const;
@@ -45,6 +48,11 @@ class AForm
 		};
 
 		class NotSignedException: public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+        class AlreadySignedException: public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

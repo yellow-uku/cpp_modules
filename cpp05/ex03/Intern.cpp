@@ -1,5 +1,5 @@
 #include "Intern.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
 
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyForm.hpp"
@@ -10,26 +10,23 @@
 Intern::Intern()
 {
 	std::cout << "Intern Default Constructor called" <<  std::endl;
+}
 
-	AForm*	initial_bufer[3] = {
-	new RobotomyRequestForm(""),
-	new ShrubberyCreationForm(""),
-	new PresidentialPardonForm("")
-	};
+Intern::Intern(Intern const &copy)
+{
+    (void)copy;
+    return;
+}
 
-	// to avoid error with unused bufer in constructor -_-
-	arrForms = new AForm*[3];
-	for (int i = 0 ; i < 3; i++) {
-		arrForms[i] = initial_bufer[i];
-	}
+Intern  &Intern::operator=(Intern const &copy)
+{
+    (void)copy;
+    return (*this);
 }
 
 Intern::~Intern()
 {
 	std::cout << "Intern Destructor called" << std::endl;
-	for (int i = 0; i < 3; i++) {
-		delete arrForms[i];
-	}
 }
 
 const char*	Intern::FormNotFoundException::what() const throw()
@@ -50,17 +47,18 @@ AForm*  Intern::makeForm(std::string const &name, std::string const &target) con
 		new ShrubberyCreationForm(target),
 		new PresidentialPardonForm(target)
 	};
-	
-	std::cout << '\n';
 
 	AForm*	arrResForm = NULL;	
 
 	for (int i = 0; i < 3; i++)
 	{
-		if (name == arrFormNames[i])
+		// deallocate unused forms
+		if (name != arrFormNames[i])
+			delete arrForms[i];
+		else
 		{
 			std::cout << "Intern creates " << arrForms[i]->getName() << std::endl;
-			return arrForms[i];
+			arrResForm = arrForms[i];
 		}
 	}
 

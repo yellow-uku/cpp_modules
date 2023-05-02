@@ -19,8 +19,11 @@ class Form
 
     public:
 
+        Form();
         Form(const std::string, const int, const int);
         ~Form();
+        Form(const Form &);
+        Form&   operator=(const Form &);
 
         const std::string   getName() const;
         bool                getIsSigned() const;
@@ -35,6 +38,11 @@ class Form
 				virtual const char* what() const throw();
 		};
 		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+        class AlreadySignedException: public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

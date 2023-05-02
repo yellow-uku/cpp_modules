@@ -2,7 +2,7 @@
 # define __INTERN_H__
 
 #include "Intern.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
 
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyForm.hpp"
@@ -10,11 +10,10 @@
 
 class Intern
 {
-    private:
-        AForm**  arrForms;
-
     public:
         Intern();
+        Intern(Intern const &);
+        Intern &operator=(Intern const &);
         ~Intern();
     
         AForm*  makeForm(std::string const &, std::string const &) const;

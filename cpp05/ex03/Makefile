@@ -12,7 +12,7 @@ SRC = main.cpp \
 	Intern.cpp
 
 H = Bureaucrat.hpp \
-	AForm.hpp \
+	Form.hpp \
 	ShrubberyForm.hpp \
 	RobotomyRequestForm.hpp \
 	PresidentialPardonForm.hpp \

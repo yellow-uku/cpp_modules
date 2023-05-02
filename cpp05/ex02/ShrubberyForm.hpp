@@ -6,7 +6,7 @@
 #include <exception>
 #include <fstream>
 
-#include "AForm.hpp"
+#include "Form.hpp"
 
 class ShrubberyCreationForm: public AForm
 {
@@ -18,10 +18,19 @@ class ShrubberyCreationForm: public AForm
         void    do_execute(Bureaucrat const &) const;
     public:
 
+        ShrubberyCreationForm();
         ShrubberyCreationForm(const std::string);
+        ShrubberyCreationForm(ShrubberyCreationForm const &); 
+        ShrubberyCreationForm& operator=(ShrubberyCreationForm const &);
         ~ShrubberyCreationForm();
 
         class ShrubberyCreationFailedException: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        class ShrubberyOpenFileException: public std::exception
         {
             public:
                 virtual const char* what() const throw();

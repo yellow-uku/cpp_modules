@@ -1,4 +1,4 @@
-#include "AForm.hpp"
+#include "Form.hpp"
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute)
 		: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
@@ -39,14 +39,22 @@ const char* AForm::NotSignedException::what() const throw()
 	return "Form Exception: The form is not signed.";
 }
 
+const char* AForm::AlreadySignedException::what() const throw()
+{
+    return "Form Exception: The form is already signed.";
+}
+
 void    AForm::beSigned(Bureaucrat &other)
 {
-	if (this->getGradeToSign() >= other.getGrade())
-		this->_isSigned = true;
-	else
-		this->_isSigned = false;
-	return;
+    if (_isSigned)
+        throw AForm::AlreadySignedException();
+
+    if (this->getGradeToSign() >= other.getGrade())
+        this->_isSigned = true;
+    else
+        throw AForm::GradeTooLowException();
 }
+
 
 void	AForm::execute(Bureaucrat const &executor) const
 {
