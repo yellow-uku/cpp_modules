@@ -6,16 +6,22 @@ int main()
     try
     {
         Bureaucrat carl("Carl", 2);
-        Bureaucrat bob("Bob", 110);
+        Bureaucrat bob("Bob", 150);
         Form first("Pepega Form", 50, 140);
+        Form second("Another Pepega Form", 51, 141);
 
+        std::cout << std::endl;
         std::cout << std::boolalpha << first << std::endl;
         carl.signForm(first);
         std::cout << std::boolalpha << first << std::endl;
         bob.signForm(first);
         std::cout << std::boolalpha << first << std::endl;
-        // Form second("Form from other pepegas", 1, 110);
         
+        std::cout << std::endl;
+        std::cout << "2nd form: " << second.getIsSigned() << std::endl;
+        carl.signForm(second);
+        // second.beSigned(carl);
+        std::cout << "2nd form: " << second.getIsSigned() << std::endl;
         // std::cout << std::endl;
         // std::cout << first << std::endl;
         // std::cout << second << std::endl;
@@ -23,14 +29,12 @@ int main()
         // std::cout << "1st form: " << first.getIsSigned() << std::endl;
         // std::cout << "2nd form: " << second.getIsSigned() << std::endl;
         
-        // first.beSigned(carl);
+        
         // second.beSigned(bob);
 
         // std::cout << "1st form: " << first.getIsSigned() << std::endl;
         // std::cout << "2nd form: " << second.getIsSigned() << std::endl;
 
-        // std::cout << std::endl;
-        // carl.signForm(first);
         // carl.signForm(second);
         // bob.signForm(first);
 

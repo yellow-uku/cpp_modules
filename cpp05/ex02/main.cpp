@@ -10,8 +10,8 @@ int main()
 	Bureaucrat carl("Carl", 1);
 
 	ShrubberyCreationForm shrubbery("first");
-	// RobotomyRequestForm robotomy("robotomy");
-	// PresidentialPardonForm	pardon("pardon");
+	RobotomyRequestForm robotomy("robotomy");
+	PresidentialPardonForm	pardon("pardon");
 
 	std::cout << '\n';
 	try
@@ -23,7 +23,7 @@ int main()
 	{
 		std::cout << ex.what() << '\n';
 	}
-	std::cout << '\n';
+	// std::cout << '\n';
 	// try
 	// {
 	// 	bob.signForm(robotomy);
